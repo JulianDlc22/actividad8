@@ -23,43 +23,28 @@ def NumeroNatural(numNatural):
         return numNatural+NumeroNatural(numNatural-1)
 
 def Fibonacci(numFibonacci):
-    num = 0
-    numAnterio = 0
-    if numFibonacci == num :
+    if numFibonacci == 0 or numFibonacci == 1:
         return 1
     else:
-        num+=1
-        numAnterio = Fibonacci()
-        return
+        return Fibonacci(numFibonacci - 2) + Fibonacci(numFibonacci - 1)
+
 
 def Letras(palabra,letra):
 
-    cont = 0
-    contadorLetras = 0
-    if cont == contadorLetras:
-        return 1
-    else:
-        for Letra in palabra:
-            if Letra == letra:
-                contadorLetras += 1
-                cont +=1
-        return contadorLetras
+
+    if letra in palabra:
+        return palabra.count(letra)
+
 
 def InvertirPalabra(invertirPalabra):
-
-    if invertirPalabra == 0 :
-        return 1
+    if invertirPalabra == []:
+        return []
 
 def potencia(base ,exponente):
     if exponente==0:
         return 1
     else:
         return base* exponente(base ,exponente-1)
-
-#/base = int(input("ingrese la base"))
-#/exponente = int(input("ingrese la exponente"))
-#/print(potencia(base,exponente))
-
 
 while True:
     menu()
@@ -68,11 +53,33 @@ while True:
     match op:
         case 1:
             n= int(input("Ingrese un entero positivo: "))
-            print(factorial(n))
+            print(factorial(n)-1)
 
         case 2:
             numNatural= int(input("Ingrese un entero positivo: "))
-            print(NumeroNatural(numNatural))
+            print(NumeroNatural(numNatural)-1)
+
+        case 3:
+            numFibonacci = int(input("Ingrese un entero positivo: "))
+            print(Fibonacci(numFibonacci))
+
+        case 4:
+            palabra = input("Ingrese un palabra: ").upper()
+            print(Letras())
+        case 5:
+            invertirPalabra = int(input("Ingrese un palabra: ")).upper()
+
+        case 6:
+            base = int(input("ingrese la base"))
+            exponente = int(input("ingrese la exponente"))
+            print(potencia(base,exponente))
+
+        case _:
+            print("Opcion no valida")
+
+
+
+
 
 
 
